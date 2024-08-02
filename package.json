@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host=0.0.0.0",
     "build": "tsc && vite build --base=/",
     "preview": "vite preview",
     "test": "vitest",
@@ -48,6 +48,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@eslint/config-inspector": "^0.5.2",
     "@eslint/eslintrc": "^3.0.2",
     "@mswjs/data": "^0.16.1",
     "@playwright/test": "^1.43.1",
