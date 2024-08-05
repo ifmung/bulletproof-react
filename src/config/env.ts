@@ -10,6 +10,7 @@ const createEnv = () => {
       .optional(),
     APP_URL: z.string().optional().default('http://localhost:3000'),
     APP_MOCK_API_PORT: z.string().optional().default('8080'),
+    BASE_URL: z.string().optional().default(''),
   });
 
   const envVars = Object.entries(import.meta.env).reduce<
@@ -27,10 +28,10 @@ const createEnv = () => {
   if (!parsedEnv.success) {
     throw new Error(
       `Invalid env provided.
-The following variables are missing or invalid:
-${Object.entries(parsedEnv.error.flatten().fieldErrors)
-  .map(([k, v]) => `- ${k}: ${v}`)
-  .join('\n')}
+      The following variables are missing or invalid:
+      ${Object.entries(parsedEnv.error.flatten().fieldErrors)
+        .map(([k, v]) => `- ${k}: ${v}`)
+        .join('\n')}
 `,
     );
   }

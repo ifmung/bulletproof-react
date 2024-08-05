@@ -5,6 +5,11 @@ export const enableMocking = async () => {
     const { worker } = await import('./browser');
     const { initializeDb } = await import('./db');
     await initializeDb();
-    return worker.start();
+
+    return worker.start({
+      serviceWorker: {
+        url: `${env.BASE_URL}/mockServiceWorker.js`,
+      },
+    });
   }
 };
