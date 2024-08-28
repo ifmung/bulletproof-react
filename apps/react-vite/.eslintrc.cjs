@@ -100,7 +100,7 @@ module.exports = {
         'linebreak-style': ['error', 'unix'],
         'react/prop-types': 'off',
         'import/order': [
-          'error',
+          'warn',
           {
             groups: [
               'builtin',
